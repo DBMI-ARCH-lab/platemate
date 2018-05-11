@@ -1,11 +1,15 @@
+import glob
+import os
+
+import httpagentparser
+#from urllib2 import urlopen
+import requests
 from django.conf import settings
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
+
 from models import *
-#from urllib2 import urlopen
-import requests
-import httpagentparser
-import os, glob
+
 
 default_assignment_id = 'ASSIGNMENT_ID_NOT_AVAILABLE'
 

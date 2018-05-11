@@ -1,9 +1,10 @@
+import subprocess
+from decimal import Decimal
+
+from boto.mturk.price import Price
 from django.conf import settings
 from django.http import HttpResponse
-from decimal import Decimal
-from boto.mturk.price import Price
 from django.template.loader import get_template
-import subprocess
 
 def turk_balance(request):
     minimum_balance = Price(100.00)

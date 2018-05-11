@@ -1,9 +1,11 @@
+from urllib import unquote
+
+from django.core.exceptions import ObjectDoesNotExist
+
+import management.models as base
 from food.models.common import *
 from management.helpers import *
 from management.qualifications import *
-import management.models as base
-from urllib import unquote
-from django.core.exceptions import ObjectDoesNotExist
 
 class Input(base.Input):
     ingredient_lists = ManyOf(IngredientList)

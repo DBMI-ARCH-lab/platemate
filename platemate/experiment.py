@@ -1,6 +1,7 @@
-from management.run import run
-from food.models import chiefs
 import sys
+
+from food.models import chiefs
+from management.run import run
 
 photoset = sys.argv[1]
 mode = sys.argv[-1]

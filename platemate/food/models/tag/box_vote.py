@@ -1,8 +1,8 @@
+import box_draw as draw
+import management.models as base
 from food.models.common import *
 from management.helpers import *
 from management.qualifications import *
-import management.models as base
-import box_draw as draw
 
 class Input(base.Input):
     box_groups = ManyOf(BoxGroup)

@@ -1,7 +1,9 @@
-from smart_model import SmartModel
 from django.db.models import *
+
 from logger import *
+from smart_model import SmartModel
 from supervisor import Supervisor
+
 
 class Input(SmartModel):
     creation_time = DateTimeField(auto_now_add=True)

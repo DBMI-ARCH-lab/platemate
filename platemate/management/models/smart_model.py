@@ -1,12 +1,14 @@
-from django.db import models
+import sys
+from pprint import pprint
+
+from django.contrib.contenttypes.models import ContentType
+from django.db import models, transaction
 from django.db.models import *
 from django.db.models.base import ModelBase
 from django.db.models.query import QuerySet
-from django.contrib.contenttypes.models import ContentType
-from django.db import transaction
+
 from downcast import DowncastMetaclass
-from pprint import pprint
-import sys
+
 
 class SmartMetaclass(DowncastMetaclass):
 

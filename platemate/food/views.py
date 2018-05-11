@@ -1,22 +1,24 @@
-from django.conf import settings
-from django.http import HttpResponse, Http404, HttpResponseBadRequest, HttpResponseNotFound, HttpResponseRedirect
-from django.core.context_processors import csrf
-from django.shortcuts import get_object_or_404, render
-from models.common import *
-from management.models import Manager
+import os
+import random
+from datetime import date, datetime
+
 #from django.contrib.auth.decorators import login_required
 from django import forms
-from datetime import date, datetime
+from django.conf import settings
+from django.core.context_processors import csrf
 from django.db import transaction
-
-from helpers import *
-
+from django.http import (Http404, HttpResponse, HttpResponseBadRequest,
+                         HttpResponseNotFound, HttpResponseRedirect,
+                         JsonResponse)
+from django.shortcuts import get_object_or_404, render
 #for api
 from django.views.decorators.csrf import csrf_exempt
-from django.http import JsonResponse
-
-import food_db, random, os
 from PIL import Image
+
+import food_db
+from helpers import *
+from management.models import Manager
+from models.common import *
 
 def login_required(f):
     def wrap(request, *args, **kwargs):

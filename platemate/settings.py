@@ -1,19 +1,21 @@
-# Django settings for platemate project.
-from management.mturk import MTurkClient
+"""settings.py
+Django settings for platemate project
+"""
+
 import os
 
-try:
-    from local_settings import *
-except ImportError:
-    pass
+from local_settings import (ADMINS, ALLOWED_HOSTS, API_KEY, BASE_PATH,
+                            DATABASES, DEBUG, PYTHONVAR, STATIC_DOC_ROOT,
+                            TEMPLATE_DIRS, URL_PATH)
+from management.mturk import MTurkClient
 
 TEMPLATE_DEBUG = DEBUG
 
-MTURK_ID = os.environ['MTURK_ID']
-MTURK_KEY = os.environ['MTURK_KEY']
+MTURK_ID = os.environ.get("MTURK_ID", None)
+MTURK_KEY = os.environ.get("MTURK_KEY", None)
 
-if MTURK_ID is None or MTURK_KEY is None:
-    raise "Your MTurk credentials are not present. Setup MTURK_ID and MTURK_KEY as environment variables"
+if not MTURK_ID or not MTURK_KEY:
+    raise ValueError("MTurk credentials are missing.")
 
 TURK_REAL = MTurkClient(
     aws_access_key=MTURK_ID,

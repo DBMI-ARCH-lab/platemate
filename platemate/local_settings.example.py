@@ -1,17 +1,23 @@
-BASE_PATH = r"/Users/eric/Dropbox/PlateMate/platemate/trunk/platemate"
-# BASE_PATH = r"D:\Code\platemate"
+"""local_settings.py
+Local settings
+"""
 
-DEBUG = True # Should be False for production
+import os
+
+BASE_PATH = os.path.dirname(os.path.abspath(__file__))
+
+# Should be False for production
+DEBUG = True
 
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),
 )
 
 TEMPLATE_DIRS = (
-    BASE_PATH + "/templates",
+    os.path.join(BASE_PATH, "templates"),
 )
 
-STATIC_DOC_ROOT = BASE_PATH + "/static"
+STATIC_DOC_ROOT = os.path.join(BASE_PATH, "static")
 
 URL_PATH = ""
 

@@ -1,9 +1,12 @@
-from Errors import *
-from TokenStore import *
+import httplib
+import urllib
+
 from oauth import oauth
 from OAuth import *
-import urllib
-import httplib
+
+from Errors import *
+from TokenStore import *
+
 try:
     import json
 except ImportError:

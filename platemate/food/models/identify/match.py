@@ -1,8 +1,9 @@
+from urllib import unquote
+
+import management.models as base
 from food.models.common import *
 from management.helpers import *
 from management.qualifications import *
-import management.models as base
-from urllib import unquote
 
 class Input(base.Input):
     box = OneOf(Box)

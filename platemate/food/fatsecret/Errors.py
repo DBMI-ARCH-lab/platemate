@@ -1,6 +1,8 @@
-from oauth import oauth
-import urllib
 import httplib
+import urllib
+
+from oauth import oauth
+
 try:
     import json
 except ImportError:

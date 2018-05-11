@@ -1,5 +1,5 @@
-from django.conf.urls import *
 from django.conf import settings
+from django.conf.urls import *
 
 #from django.contrib import admin
 #admin.autodiscover()

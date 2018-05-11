@@ -1,6 +1,8 @@
-from smart_model import SmartModel
-from django.db.models import *
 from django.conf import settings
+from django.db.models import *
+
+from smart_model import SmartModel
+
 
 class Hit(SmartModel):
     template = CharField(max_length=100)

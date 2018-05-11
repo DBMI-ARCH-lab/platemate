@@ -1,6 +1,7 @@
-from management.run import run
-from food.models import chiefs
 import sys
+
+from food.models import chiefs
+from management.run import run
 
 # Example usage: "python uploads.py sandbox"
 operation = sys.argv[1]

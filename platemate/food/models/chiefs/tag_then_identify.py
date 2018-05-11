@@ -1,9 +1,11 @@
-from food.models.common import *
-import management.models as base
-from food.models import tag, identify, measure
+import glob
+import os
 
 from django.conf import settings
-import os, glob
+
+import management.models as base
+from food.models import identify, measure, tag
+from food.models.common import *
 
 class Output(base.Output):
     photo = OneOf(Photo)

@@ -1,6 +1,6 @@
-from food.models.common import *
 import management.models as base
 from food.models import identify
+from food.models.common import *
 
 class Input(base.Input):
     box = OneOf(Box)

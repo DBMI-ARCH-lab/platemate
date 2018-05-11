@@ -1,8 +1,11 @@
-import os, sys
+import os
+import sys
+
 from django.conf import settings
 from PIL import Image
-from models.common import *
+
 import platemate_constants
+from models.common import *
 
 def is_authenticated_api_request(request):
     return ('HTTP_X_API_KEY' in request.META and request.META['HTTP_X_API_KEY'] == settings.API_KEY)

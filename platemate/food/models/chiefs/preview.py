@@ -1,6 +1,6 @@
-from food.models.common import *
 import management.models as base
-from food.models import tag, identify, measure
+from food.models import identify, measure, tag
+from food.models.common import *
 
 class Manager(base.Manager):
 

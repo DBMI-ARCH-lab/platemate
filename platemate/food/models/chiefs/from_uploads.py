@@ -1,10 +1,14 @@
-from food.models.common import *
-import management.models as base
-from food.models import tag, identify, measure
-from logger import *
+import glob
+import os
+import random
+
 from django.conf import settings
-import os, glob, random
 from PIL import Image
+
+import management.models as base
+from food.models import identify, measure, tag
+from food.models.common import *
+from logger import *
 
 class Manager(base.Manager):
 

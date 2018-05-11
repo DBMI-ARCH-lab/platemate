@@ -1,5 +1,11 @@
-from oauth import oauth
+import BaseHTTPServer
 import cgi
+import time
+
+from oauth import oauth
+
+from Thread import FSThread
+
 
 class FSToken(oauth.OAuthToken):
     def from_string(s):
@@ -54,10 +60,6 @@ class FSRequest(oauth.OAuthRequest):
 
         return cls(http_method, http_url, parameters)
 
-from Thread import FSThread
-import BaseHTTPServer
-import cgi
-import time
 
 def RunHTTPServer(httpd):
     httpd.serve_forever()

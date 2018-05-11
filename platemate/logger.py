@@ -1,5 +1,5 @@
-import sys
 import logging
+import sys
 
 LOGGING_LEVEL = 10
 

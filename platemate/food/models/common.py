@@ -1,13 +1,15 @@
-from django.db.models import *
+import json
+from datetime import date
+
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
+from django.db.models import *
+
 from food.food_db import *
-from management.models import SmartModel, Manager
-from management.helpers import *
-import json
-from management.models.smart_model import OneOf, ManyOf
 from logger import *
-from datetime import date
+from management.helpers import *
+from management.models import Manager, SmartModel
+from management.models.smart_model import ManyOf, OneOf
 
 PHOTO_WIDTH = 400
 PHOTO_HEIGHT = 300

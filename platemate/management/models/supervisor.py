@@ -1,13 +1,16 @@
+from datetime import datetime
+from time import sleep
+
+from django.conf import settings
+from django.db import transaction
+from django.db.models import Min
+
+from logger import *
 from management import qualifications
 from management.helpers import *
 from management.models.turk import *
-from django.db.models import Min
-from logger import *
 from turk import Hit
-from django.conf import settings
-from django.db import transaction
-from datetime import datetime
-from time import sleep
+
 
 class Supervisor(object):
 

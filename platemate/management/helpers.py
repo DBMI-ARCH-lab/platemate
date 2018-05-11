@@ -1,6 +1,11 @@
-import pprint, sys, random, os, re, inspect
-from datetime import datetime
+import inspect
 import math
+import os
+import pprint
+import random
+import re
+import sys
+from datetime import datetime
 
 # Timing
 

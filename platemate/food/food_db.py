@@ -1,4 +1,5 @@
 from django.core.exceptions import ObjectDoesNotExist
+
 from fatsecret import *
 
 class PlateMateApp(FatSecretApplication):

@@ -1,9 +1,10 @@
 from django import template
 from django.conf import settings
-from django.utils.safestring import mark_safe
-from food.models.common import *
-from django.template.loader import get_template, render_to_string
 from django.template import defaultfilters
+from django.template.loader import get_template, render_to_string
+from django.utils.safestring import mark_safe
+
+from food.models.common import *
 
 register = template.Library()
 

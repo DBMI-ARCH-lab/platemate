@@ -1,12 +1,14 @@
 import os
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
-from django.conf import settings
 
-from django.db import connection
+from django.conf import settings
 from django.contrib.auth.models import User
-from management.models import *
-from food.models.common import *
+from django.db import connection
+
 from food.models import *
+from food.models.common import *
+from management.models import *
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
 
 # Tag - Draw
 p = Photo.from_string("http://www.platebrain.com/pictures/pilot/pilot1.jpg")

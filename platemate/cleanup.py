@@ -1,11 +1,14 @@
 import os
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
-from django.conf import settings
-
 import sys
+
+from django.conf import settings
 from django.db import connection
-from management.models import *
+
 from logger import *
+from management.models import *
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
+
 
 operation = sys.argv[1]
 use_sandbox = (sys.argv[-1] != 'real')

@@ -1,12 +1,16 @@
 # Modules
 # -------
-from boto.mturk.connection import MTurkConnection, MTurkRequestError
-from boto.mturk.question import ExternalQuestion
+import sys
+import traceback
+
 from boto.mturk import qualification
+from boto.mturk.connection import MTurkConnection, MTurkRequestError
 from boto.mturk.price import Price
-from logger import *
+from boto.mturk.question import ExternalQuestion
+
 from helpers import *
-import sys, traceback
+from logger import *
+
 
 def catcherror(f):
     def new_f(*args, **kwargs):

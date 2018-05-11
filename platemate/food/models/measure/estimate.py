@@ -1,9 +1,10 @@
+from fractions import Fraction
+from urllib import unquote
+
+import management.models as base
 from food.models.common import *
 from management.helpers import *
 from management.qualifications import *
-import management.models as base
-from urllib import unquote
-from fractions import Fraction
 
 class Input(base.Input):
     ingredient = OneOf(Ingredient) # without Serving or amount filled in
