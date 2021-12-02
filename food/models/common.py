@@ -31,6 +31,9 @@ class Submission(SmartModel):
     identified_ingredients = ManyOf('Ingredient', related_name='identified_for_submissions')
     measured_ingredients = ManyOf('Ingredient', related_name='measured_for_submissions')
 
+    # The boxes that have gone through describe_match_maybe_vote
+    identified_boxes = ManyOf('Box')
+
     # User answers
     manual = BooleanField(default=False)
 
@@ -39,6 +42,7 @@ class Submission(SmartModel):
     processed = DateTimeField(null=True)
     completed = DateTimeField(null=True)
     hidden = BooleanField(default=False)
+    ingredients_combined = BooleanField(default=False)
 
     def breakdown(self):
         boxes = {None: []}
@@ -60,23 +64,20 @@ class Submission(SmartModel):
         self.processed = datetime.now()
         self.save()
 
+    def check_all_identified(self):
+        if self.tagged_boxes is None:
+            return False
+
+        return self.tagged_boxes.boxes.count() == self.identified_boxes.count()
+
     def check_completed(self):
         if self.completed is not None:
             return True
 
-        if self.tagged_boxes is None:
-            return False
-
-        # Have all the tagged boxes been measured?
-
-        matched_boxes = set([i.box for i in self.identified_ingredients.all()])
-        tagged_boxes = self.tagged_boxes.boxes.all()
-
-        if len(matched_boxes) != len(tagged_boxes):
+        if not self.check_all_identified():
             return False
 
         # Have all the measured boxes been identified?
-
         num_identified = self.identified_ingredients.count()
         num_measured = self.measured_ingredients.count()
         if num_measured == num_identified:
@@ -448,7 +449,7 @@ class Ingredient(SmartModel):
 
 class IngredientList(SmartModel):
     ingredients = ManyOf(Ingredient, related_name='list')
-    box = OneOf(Box)
+    box = OneOf(Box, related_name='ingredient_list')
 
     def __eq__(self, other):
         return [i.food.pk for i in self.ingredients.all()] == [i.food.pk for i in other.ingredients.all()]
