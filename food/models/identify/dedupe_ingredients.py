@@ -24,7 +24,14 @@ class Response(base.Response):
     # ingredients.
     def validate(self):
         # Parse out ingredient parameters coming from form into nice clean dictionary.
-        ingredient_params = {int(key[11:]): value == '1' for key, value in vars(self).items()
+        # In the form we use a checkbox combined with a hidden input to ensure that each ingredient
+        # appears in the submission even if the box is unchecked.
+        # If Django handles this directly, it will return '0' if unchecked and '1' if checked,
+        # as the checkbox overrides the hidden input.
+        # Mechanical Turk, however, handles this differently. It returns '0' if unchecked and
+        # '0|1' if checked, as it appears to combine both values instead of having one override the other.
+        # So we check for value != '0' instead of value == '1' to determine whether checked.
+        ingredient_params = {int(key[11:]): value != '0' for key, value in vars(self).items()
                              if key.startswith('ingredient_')}
 
         # Prepare lists
